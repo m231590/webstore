@@ -15,6 +15,11 @@ ActiveRecord::Schema.define(version: 2022_02_08_162228) do
   create_table "articles", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.string "image"
+    t.string "seller"
+    t.integer "quantity"
+    t.decimal "rating"
+    t.decimal "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -22,6 +27,11 @@ ActiveRecord::Schema.define(version: 2022_02_08_162228) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.string "image"
+    t.string "seller"
+    t.integer "quantity"
+    t.decimal "rating"
+    t.decimal "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

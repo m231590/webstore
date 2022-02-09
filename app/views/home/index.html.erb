@@ -1,5 +1,13 @@
 <h1>Keep your head on a swivel Amazon</h1>
 
+<%if @products.count > 1 %>
+<p>There are <%= @products.count %> products!</p>
+<%else%>
+<p>There is <%= @products.count %> product!</p>
+<%end%>
+
+<p>The first product costs only <%= @products.first.price %> dollars!</p>
+
 <ul>
     <% @products.each do |product| %>
         <li>
