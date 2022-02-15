@@ -1,17 +1,19 @@
-<h1>Keep your head on a swivel Amazon</h1>
+<span class="jumbotron text-center"><h1 class="jumbotron-heading">The *Official* NHF Store</h1></span>
 
 <%if @products.count > 1 %>
-<p>There are <%= @products.count %> products!</p>
+<p class = "alert alert-info">There are <%= @products.count %> products!</p>
 <%else%>
-<p>There is <%= @products.count %> product!</p>
+<p class = "alert alert-info">There is <%= @products.count %> product!</p>
 <%end%>
 
-<p>The first product costs only <%= @products.first.price %> dollars!</p>
+<p class = "alert alert-danger">The first product costs only $<%= @products.first.price %></p>
 
-<ul>
-    <% @products.each do |product| %>
-        <li>
-            <%= link_to product.name, product %>
-        </li>
-    <% end %>
+<ul class="list-group">
+        <% @products.each do |product, index| %>
+            <li class="list-group-item">
+                <%= link_to product.name, product, class: "list-group-item-action"%>
+            <li>
+        <% end %>
 </ul>
+
+<%= link_to "Add a Product", new_product_path, class: "btn btn-outline-primary"%>
