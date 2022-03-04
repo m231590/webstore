@@ -1,5 +1,9 @@
 <span class="jumbotron text-center"><h1 class="jumbotron-heading">The *Official* NHF Store</h1></span>
 
+<%if @cart.count > 0 %>
+<p class = "alert alert-warning">You have <%= @cart.count %> items in your cart</p>
+<%end%>
+
 <%if @products.count > 1 %>
 <p class = "alert alert-info">There are <%= @products.count %> products!</p>
 <%else%>
@@ -12,8 +16,18 @@
         <% @products.each do |product, index| %>
             <li class="list-group-item">
                 <%= link_to product.name, product, class: "list-group-item-action"%>
+                <%= link_to "Add to Cart", buy_path(product), class: "btn btn-outline-warning"%>
+                <!--<a href="/products/<%=product.id%>/buy" class="btn btn-outline-success">Add to Cart</a>-->
             <li>
         <% end %>
 </ul>
 
-<%= link_to "Add a Product", new_product_path, class: "btn btn-outline-primary"%>
+<!-- <%= link_to "Add a Product", new_product_path, class: "btn btn-outline-primary"%>-->
+<%= link_to "Checkout", checkout_path, class: "btn btn-outline-success"%>
+
+<br>
+<%if @cart.length == 1 %>
+<h2>Your Shopping Cart: (<%=@cart.length%> item)</h2>)
+<%else%>
+<h2>Your Shopping Cart: (<%=@cart.length%> items)</h2>)
+<%end%>
