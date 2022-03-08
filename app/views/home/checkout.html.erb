@@ -4,7 +4,9 @@
         <% @cart.each do |product| %>
             <li class="list-group-item">
                 Product: 
-                <%=product%></li>
+                <%=product["name"]%></li>
+                <div>Price: $<%=product["price"]%></div>
+                <div>In Stock: <%=product["quantity"]%></div>
             <li>
         <% end %>
 </ul>
