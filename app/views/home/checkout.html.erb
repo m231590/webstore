@@ -5,6 +5,7 @@
             <li class="list-group-item">
                 Product: 
                 <%=product["name"]%></li>
+                <div><%= image_tag product["image"], height: 100 %></div>
                 <div>Price: $<%=product["price"]%></div>
                 <div>In Stock: <%=product["quantity"]%></div>
             <li>

@@ -18,6 +18,8 @@ class HomeController < ApplicationController
         end
         product = Product.find(params[:id]) #get id for the parameter you want to buy
         session[:cart].append(product) #cart cookie
+        product.quantity = product.quantity-1
+        product.save
         redirect_to :root #no new view for the buy function
     end
 

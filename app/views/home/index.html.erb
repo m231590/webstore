@@ -10,8 +10,6 @@
 <p class = "alert alert-info">There is <%= @products.count %> product!</p>
 <%end%>
 
-<p class = "alert alert-danger">The first product costs only $<%= @products.first.price %></p>
-
 <ul class="list-group">
         <% @products.each do |product, index| %>
             <li class="list-group-item">
