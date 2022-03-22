@@ -2,13 +2,10 @@
 <span class="jumbotron text-center"><h1 class="jumbotron-heading">The *Official* NHF Store</h1></span>
 <h1><u><%= @products.name %></u></h1>
 
+<!--<img src="app/assets/images/bottle.jpg" alt = "Product Image">-->
+<%= image_tag @products.image, height: 300 %>
 <p class = "border border-secondary rounded"><%= @products.description %></p>
 
 <div class = "boder border-info rounded">
     Price $<%=@products.price%>
 </div>
-
-<%= link_to "Remove Product", product_path(@products), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  }, class: "btn btn-danger"%>

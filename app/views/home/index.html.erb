@@ -16,8 +16,15 @@
         <% @products.each do |product, index| %>
             <li class="list-group-item">
                 <%= link_to product.name, product, class: "list-group-item-action"%>
+
+                <%if product.quantity > 0 %>
                 <%= link_to "Add to Cart", buy_path(product), class: "btn btn-outline-warning"%>
-                <!--<a href="/products/<%=product.id%>/buy" class="btn btn-outline-success">Add to Cart</a>-->
+                <%else%>
+                <p class = "alert alert-warning">Out of Stock!</p>
+                <%end%>
+
+                <div><%= image_tag product.image, height: 100 %></div>
+                <div><p>There are <%= product.quantity %> left in stock</p></div>
             <li>
         <% end %>
 </ul>
@@ -27,7 +34,7 @@
 
 <br>
 <%if @cart.length == 1 %>
-<h2>Your Shopping Cart: (<%=@cart.length%> item)</h2>)
+<h2>Your Shopping Cart: (<%=@cart.length%> item)</h2>
 <%else%>
-<h2>Your Shopping Cart: (<%=@cart.length%> items)</h2>)
+<h2>Your Shopping Cart: (<%=@cart.length%> items)</h2>
 <%end%>
