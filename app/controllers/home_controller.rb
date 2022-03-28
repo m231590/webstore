@@ -6,11 +6,6 @@ class HomeController < ApplicationController
         @products = Product.all #pass all the products to the index view
         @cart = session[:cart] #pass cart information to the index view
     end
-
-    def list
-        @products = Product.all
-        render json: @products
-    end
     
     def buy
         if session[:cart].nil?

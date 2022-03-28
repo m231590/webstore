@@ -7,6 +7,11 @@ class ProductController < ApplicationController
         @products = Product.new
     end
 
+    def list
+        @products = Product.all
+        render json: @products, only: [:id, :name, :quantity, :price]
+    end
+
     def create
         @products = Product.new(name: "...", description: "...", price: "...")
 
